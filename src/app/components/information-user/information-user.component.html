@@ -1,0 +1,41 @@
+<div class="card  mx-auto mb-3" style="max-width: 540px;">
+    <div class="row no-gutters">
+        <div class="col-md-4">
+            <img src="https://png.pngtree.com/element_our/png/20181206/users-vector-icon-png_260862.jpg"
+                class="card-img" alt="...">
+        </div>
+        <div class="col-md-8">
+            <div class="card-body">
+                <form [formGroup]="formUser" (ngSubmit)="updateUser()" (change)="verifyChanges()">
+                    <div class="form-row">
+                        <div class="col-md-4 mb-3">
+                            <label for="validationDefault01">First name</label>
+                            <input type="text" class="form-control" formControlName="firstName" name="firstName"
+                                id="firstName" placeholder="First name"  [(ngModel)]="userInfo.firstName"
+                                required>
+                        </div>
+                        <div class="col-md-4 ml-3">
+                            <label for="validationDefault02">Last name</label>
+                            <input type="text" class="form-control" formControlName="lastName" name="lastName"
+                                id="lastName" placeholder="Last name" [(ngModel)]="userInfo.lastName"
+                                required>
+                        </div>
+                    </div>
+                    <p class="card-text">{{userInfo.age}} years old</p>
+                    <p class="card-text">{{userInfo.description}}</p>
+
+                    <div class="row">
+                        <div class="col col-lg-3">
+                            <button type="submit" class="btn btn-success">Save</button>
+                        </div>
+                        <div class="col col-lg-2">
+                            <button type="button" (click)="confirmCancel()" class="btn btn-danger"> Cancel</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<p-confirmDialog header="Confirmation" icon="pi pi-exclamation-triangle"></p-confirmDialog>
